@@ -42,10 +42,45 @@ def _():
 @app.cell
 def _(customers):
     everybody = customers.select("City" , "State" , "Country" , "Continent").unique(
-        "State" , maintain_order=True
+        "City" , maintain_order=True
     )
     everybody
     return (everybody,)
+
+
+@app.cell
+def _(customers, pl):
+    total = customers.agg(pl.col("Name").sum)
+    return (total,)
+
+
+@app.cell
+def _(customers, pl):
+    continent_number = customers.select(pl.col("Continent").value_counts())
+    continent_number
+    return (continent_number,)
+
+
+@app.cell
+def _(customers):
+    states = customers.select("State" , "Country" , "Continent").unique(
+        "State" , maintain_order=True
+    )
+    states
+    return (states,)
+
+
+@app.cell
+def _(customers):
+    country = customers.select("Country" , "Continent").unique(
+        "Country" , maintain_order=True)
+    country
+    return (country,)
+
+
+@app.cell
+def _():
+    return
 
 
 if __name__ == "__main__":
