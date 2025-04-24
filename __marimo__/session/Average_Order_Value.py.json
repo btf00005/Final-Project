@@ -1,0 +1,175 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.11.18"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "b0b87f339900618d485bcdc0f4850716",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "9992402cd165f1e735a147a4572c55da",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "This cell raised an exception: ComputeError('could not parse `V3L 5H1` as dtype `i64` at column 'Zip Code' (column number 7)\n\nThe current offset in the file is 6529 bytes.\n\nYou might want to try:\n- increasing `infer_schema_length` (e.g. `infer_schema_length=10000`),\n- specifying correct dtype with the `schema_overrides` argument\n- setting `ignore_errors` to `True`,\n- adding `V3L 5H1` to the `null_values` list.\n\nOriginal error: ```remaining bytes non-empty```')",
+          "traceback": []
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;C:\\Users\\dcpau\\Documents\\IENG 331\\Final-Project\\.venv\\Lib\\site-packages\\marimo\\_runtime\\executor.py&quot;</span>, line <span class=\"m\">141</span>, in <span class=\"n\">execute_cell</span>\n<span class=\"w\">    </span><span class=\"n\">exec</span><span class=\"p\">(</span><span class=\"n\">cell</span><span class=\"o\">.</span><span class=\"n\">body</span><span class=\"p\">,</span> <span class=\"n\">glbls</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;C:\\Users\\dcpau\\AppData\\Local\\Temp\\marimo_24852\\__marimo__cell_MJUe_.py&quot;</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">customers</span><span class=\"o\">=</span><span class=\"n\">pl</span><span class=\"o\">.</span><span class=\"n\">read_csv</span><span class=\"p\">(</span><span class=\"s2\">&quot;C:/Users/dcpau/Documents/IENG 331/Final-Project/data/Customers.csv&quot;</span><span class=\"p\">)</span>\n<span class=\"w\">              </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">&quot;C:\\Users\\dcpau\\Documents\\IENG 331\\Final-Project\\.venv\\Lib\\site-packages\\polars\\_utils\\deprecation.py&quot;</span>, line <span class=\"m\">92</span>, in <span class=\"n\">wrapper</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">function</span><span class=\"p\">(</span><span class=\"o\">*</span><span class=\"n\">args</span><span class=\"p\">,</span> <span class=\"o\">**</span><span class=\"n\">kwargs</span><span class=\"p\">)</span>\n<span class=\"w\">           </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">&quot;C:\\Users\\dcpau\\Documents\\IENG 331\\Final-Project\\.venv\\Lib\\site-packages\\polars\\_utils\\deprecation.py&quot;</span>, line <span class=\"m\">92</span>, in <span class=\"n\">wrapper</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">function</span><span class=\"p\">(</span><span class=\"o\">*</span><span class=\"n\">args</span><span class=\"p\">,</span> <span class=\"o\">**</span><span class=\"n\">kwargs</span><span class=\"p\">)</span>\n<span class=\"w\">           </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">&quot;C:\\Users\\dcpau\\Documents\\IENG 331\\Final-Project\\.venv\\Lib\\site-packages\\polars\\_utils\\deprecation.py&quot;</span>, line <span class=\"m\">92</span>, in <span class=\"n\">wrapper</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">function</span><span class=\"p\">(</span><span class=\"o\">*</span><span class=\"n\">args</span><span class=\"p\">,</span> <span class=\"o\">**</span><span class=\"n\">kwargs</span><span class=\"p\">)</span>\n<span class=\"w\">           </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">&quot;C:\\Users\\dcpau\\Documents\\IENG 331\\Final-Project\\.venv\\Lib\\site-packages\\polars\\io\\csv\\functions.py&quot;</span>, line <span class=\"m\">537</span>, in <span class=\"n\">read_csv</span>\n<span class=\"w\">    </span><span class=\"n\">df</span> <span class=\"o\">=</span> <span class=\"n\">_read_csv_impl</span><span class=\"p\">(</span>\n<span class=\"w\">         </span><span class=\"pm\">^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">&quot;C:\\Users\\dcpau\\Documents\\IENG 331\\Final-Project\\.venv\\Lib\\site-packages\\polars\\io\\csv\\functions.py&quot;</span>, line <span class=\"m\">685</span>, in <span class=\"n\">_read_csv_impl</span>\n<span class=\"w\">    </span><span class=\"n\">pydf</span> <span class=\"o\">=</span> <span class=\"n\">PyDataFrame</span><span class=\"o\">.</span><span class=\"n\">read_csv</span><span class=\"p\">(</span>\n<span class=\"w\">           </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^</span>\n<span class=\"gr\">polars.exceptions.ComputeError</span>: <span class=\"n\">could not parse `V3L 5H1` as dtype `i64` at column &#39;Zip Code&#39; (column number 7)</span>\n\n<span class=\"x\">The current offset in the file is 6529 bytes.</span>\n\n<span class=\"x\">You might want to try:</span>\n<span class=\"x\">- increasing `infer_schema_length` (e.g. `infer_schema_length=10000`),</span>\n<span class=\"x\">- specifying correct dtype with the `schema_overrides` argument</span>\n<span class=\"x\">- setting `ignore_errors` to `True`,</span>\n<span class=\"x\">- adding `V3L 5H1` to the `null_values` list.</span>\n\n<span class=\"x\">Original error: ```remaining bytes non-empty```</span>\n</pre></div>\n</span>"
+        }
+      ]
+    },
+    {
+      "id": "vblA",
+      "code_hash": "82599557c1ce58483c7e225b2b22d142",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='vblA-0' random-id='be71ad24-f0d1-34d8-e43e-4e65de8010f0'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;./@file/545-46784-KSzEdHrb.csv&quot;' data-total-rows='62884' data-total-columns='9' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Order Number&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Line Item&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Order Date&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Delivery Date&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;CustomerKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;StoreKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;ProductKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Quantity&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Currency Code&quot;, [&quot;string&quot;, &quot;str&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-row-headers='[]' data-has-stable-row-id='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "18f3be6affb24f2decc668aca9964834",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='bkHC-0' random-id='990ea24b-ae18-24c9-bc56-7ff1092e1a18'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;./@file/963-46784-FyOTRU3V.csv&quot;' data-total-rows='2517' data-total-columns='10' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;ProductKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Product Name&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Brand&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Color&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Unit Cost USD&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Unit Price USD&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;SubcategoryKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Subcategory&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;CategoryKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Category&quot;, [&quot;string&quot;, &quot;str&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-row-headers='[]' data-has-stable-row-id='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "b567a565312c18dab84709c1d055dfc0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='lEQa-0' random-id='4897b7be-e093-29c2-43a5-f069ef8913ea'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;./@file/466-46784-BFFOpfEK.csv&quot;' data-total-rows='67' data-total-columns='5' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;StoreKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Country&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;State&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Square Meters&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Open Date&quot;, [&quot;string&quot;, &quot;str&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-row-headers='[]' data-has-stable-row-id='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "80d2103a5eead2efb3e1a5136cbad158",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='PKri-0' random-id='d025e2cc-f34f-ba33-659c-7738ae4a1c5b'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;./@file/1788-46784-xPbCbTir.csv&quot;' data-total-rows='62884' data-total-columns='18' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Order Number&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Line Item&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Order Date&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Delivery Date&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;CustomerKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;StoreKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;ProductKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Quantity&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Currency Code&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Product Name&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Brand&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Color&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Unit Cost USD&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Unit Price USD&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;SubcategoryKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Subcategory&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;CategoryKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Category&quot;, [&quot;string&quot;, &quot;str&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-row-headers='[]' data-has-stable-row-id='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "180c21474251331f193e4e2d93acb44d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='Xref-0' random-id='36a83ccf-6f48-8659-fbc1-8a431f9703c6'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;./@file/1836-46784-E2JCAaia.csv&quot;' data-total-rows='62884' data-total-columns='20' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Order Number&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Line Item&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Order Date&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Delivery Date&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;CustomerKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;StoreKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;ProductKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Quantity&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Currency Code&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Product Name&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Brand&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Color&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Unit Cost USD&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Unit Price USD&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;SubcategoryKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Subcategory&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;CategoryKey&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Category&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Online&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Store&quot;, [&quot;integer&quot;, &quot;i64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-row-headers='[]' data-has-stable-row-id='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "8be1d38545c289788fdd70c2e44b2523",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='SFPL-0' random-id='74f5bebb-a0f4-8c21-7344-821af000f0b2'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;./@file/369-46784-pBagEUgE.csv&quot;' data-total-rows='62884' data-total-columns='6' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Order Number&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Quantity&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Unit Cost USD&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Unit Price USD&quot;, [&quot;string&quot;, &quot;str&quot;]], [&quot;Online&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Store&quot;, [&quot;integer&quot;, &quot;i64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-row-headers='[]' data-has-stable-row-id='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "a236971b2e5614dc3212c52d3b8bab31",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='BYtC-0' random-id='40ea701f-6ad3-7440-a770-381381a2b864'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;./@file/317-46784-aH15e0nt.csv&quot;' data-total-rows='62884' data-total-columns='6' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Order Number&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Quantity&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Unit Cost USD&quot;, [&quot;number&quot;, &quot;f64&quot;]], [&quot;Unit Price USD&quot;, [&quot;number&quot;, &quot;f64&quot;]], [&quot;Online&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Store&quot;, [&quot;integer&quot;, &quot;i64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-row-headers='[]' data-has-stable-row-id='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "a0cba97b51ff45c96e4b6d23df29f41b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='RGSE-0' random-id='4fb6acf8-3757-5629-3846-0a4e53289f5d'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;./@file/393-46784-Dg57f3RG.csv&quot;' data-total-rows='62884' data-total-columns='7' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Order Number&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Quantity&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Unit Cost USD&quot;, [&quot;number&quot;, &quot;f64&quot;]], [&quot;Unit Price USD&quot;, [&quot;number&quot;, &quot;f64&quot;]], [&quot;Online&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Store&quot;, [&quot;integer&quot;, &quot;i64&quot;]], [&quot;Total Price&quot;, [&quot;number&quot;, &quot;f64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-row-headers='[]' data-has-stable-row-id='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "d5f6b38a741a176b46621d24aec81001",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/html:<marimo-ui-element object-id='Kclp-0' random-id='70053cf1-3863-74a2-6b8c-0d2d98988164'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;./@file/41-46784-c7mhWgBH.csv&quot;' data-total-rows='1' data-total-columns='1' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Avg Online Order Price&quot;, [&quot;number&quot;, &quot;f64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-row-headers='[]' data-has-stable-row-id='false'></marimo-table></marimo-ui-element>\", \"text/html:<marimo-ui-element object-id='Kclp-1' random-id='37f23835-fcfd-1595-23da-9640fcbe9d17'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;./@file/41-46784-XQjtJ4Jc.csv&quot;' data-total-rows='1' data-total-columns='1' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Avg Store Order Price &quot;, [&quot;number&quot;, &quot;f64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-row-headers='[]' data-has-stable-row-id='false'></marimo-table></marimo-ui-element>\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "3528b1db356c53c4884507db598d5cda",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "1bd16f38070be39cfebaa46636f6c6d4",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "47447dd26584e0960a1b8a1a4d0a5f9f",
+      "outputs": [],
+      "console": []
+    }
+  ]
+}
