@@ -15,33 +15,33 @@ def _():
 
 @app.cell
 def _(pl):
-    customers=pl.read_csv("C:/Users/dcpau/Documents/IENG 331/FinalProject/data/Customers.csv")
+    customers=pl.read_csv("C:/Users/dcpau/Documents/IENG 331/Final-Project/data/Customers.csv")
     customers.head()
     return (customers,)
 
 
 @app.cell
 def _(pl):
-    sales=pl.read_csv("C:/Users/dcpau/Documents/IENG 331/FinalProject/data/Sales.csv")
+    sales=pl.read_csv("C:/Users/dcpau/Documents/IENG 331/Final-Project/data/Sales.csv")
     sales
     return (sales,)
 
 
 @app.cell
 def _(pl):
-    products=pl.read_csv("C:/Users/dcpau/Documents/IENG 331/FinalProject/data/Products.csv")
+    products=pl.read_csv("C:/Users/dcpau/Documents/IENG 331/Final-Project/data/Products.csv")
     products
     return (products,)
 
 
 @app.cell
 def _(pl):
-    stores=pl.read_csv("C:/Users/dcpau/Documents/IENG 331/FinalProject/data/Stores.csv")
+    stores=pl.read_csv("C:/Users/dcpau/Documents/IENG 331/Final-Project/data/Stores.csv")
     stores
     return (stores,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(products, sales):
     sales_products = sales.join(products, on="ProductKey")
     sales_products
@@ -54,7 +54,7 @@ def _(pl, sales_products):
         pl.when(pl.col("StoreKey") == 0)
           .then("StoreKey")
           .alias("Online"),
-    
+
         pl.when(pl.col("StoreKey") != 0)
           .then("StoreKey")
           .alias("Store")
