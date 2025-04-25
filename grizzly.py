@@ -10,7 +10,8 @@ def _():
     import polars.selectors as cs
     import marimo as mo
     import re
-    return cs, mo, pl, re
+    import altair as alt
+    return alt, cs, mo, pl, re
 
 
 @app.cell
@@ -49,37 +50,86 @@ def _(customers):
 
 
 @app.cell
-def _(customers, pl):
-    total = customers.agg(pl.col("Name").sum)
-    return (total,)
+def _(customers):
+    continent_number = customers.group_by("Continent").len(name = "amount")
+    best_continent = continent_number.top_k(5, by = "amount")
+    best_continent
+    return best_continent, continent_number
 
 
 @app.cell
-def _(customers, pl):
-    continent_number = customers.select(pl.col("Continent").value_counts())
-    continent_number
-    return (continent_number,)
+def _(alt, continent_number):
+    alt.Chart(continent_number).mark_arc().encode(
+        theta=alt.Theta(field="amount", type="quantitative"),
+        color=alt.Color(field="Continent", type="nominal"),
+        tooltip=["Continent", "amount"]
+    ).properties(
+        title="Continents who buy from us",
+        width=300,
+        height=300)
+    return
 
 
 @app.cell
 def _(customers):
-    states = customers.select("State" , "Country" , "Continent").unique(
-        "State" , maintain_order=True
-    )
-    states
-    return (states,)
+    country_number = customers.group_by("Country").len(name = "amount")
+    best_country = country_number.top_k(5, by = "amount")
+    best_country
+    return best_country, country_number
+
+
+@app.cell
+def _(alt, country_number):
+    alt.Chart(country_number).mark_arc().encode(
+        theta=alt.Theta(field="amount", type="quantitative"),
+        color=alt.Color(field="Country", type="nominal"),
+        tooltip=["Country", "amount"]
+    ).properties(
+        title="Countries who buy from us",
+        width=300,
+        height=300)
+    return
 
 
 @app.cell
 def _(customers):
-    country = customers.select("Country" , "Continent").unique(
-        "Country" , maintain_order=True)
-    country
-    return (country,)
+    state_number = customers.group_by("State").len(name = "amount")
+    best_state = state_number.top_k(5, by = "amount")
+    best_state
+    return best_state, state_number
 
 
 @app.cell
-def _():
+def _(alt, state_number):
+    alt.Chart(state_number).mark_arc().encode(
+        theta=alt.Theta(field="amount", type="quantitative"),
+        color=alt.Color(field="State", type="nominal"),
+        tooltip=["State", "amount"]
+    ).properties(
+        title="States who buy from us",
+        width=300,
+        height=300)
+    return
+
+
+@app.cell
+def _(customers):
+    city_number = customers.group_by("City").len(name = "amount")
+    best_city = city_number.top_k(5, by = "amount")
+    best_city
+    return best_city, city_number
+
+
+@app.cell
+def _(alt, city_number):
+    alt.Chart(city_number).mark_arc().encode(
+        theta=alt.Theta(field="amount", type="quantitative"),
+        color=alt.Color(field="City", type="nominal"),
+        tooltip=["City", "amount"]
+    ).properties(
+        title="Cities who buy from us",
+        width=300,
+        height=300)
     return
 
 
