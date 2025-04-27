@@ -28,14 +28,12 @@ def _(pl):
 @app.cell
 def _(exchange_rates, pl):
     exchange = exchange_rates.select(pl.all().name.to_lowercase())
-    exchange
     return (exchange,)
 
 
 @app.cell
 def _(exchange, pl):
     rates = exchange.with_columns(pl.col("date").str.to_date("%m/%d/%Y") )
-    rates
     return (rates,)
 
 
@@ -62,7 +60,6 @@ def _(pl):
 @app.cell
 def _(pl, product):
     prod_uct = product.select(pl.all().name.to_lowercase())
-    prod_uct
     return (prod_uct,)
 
 
@@ -71,8 +68,6 @@ def _(pl, prod_uct):
     prod = prod_uct.with_columns(pl.col("productkey").cast(pl.String) , 
                                pl.col("subcategorykey").cast(pl.String) , 
                                pl.col("categorykey").cast(pl.String) )
-
-    prod
     return (prod,)
 
 
@@ -99,7 +94,6 @@ def _(pl):
 @app.cell
 def _(pl, sales):
     buy = sales.select(pl.all().name.to_lowercase() )
-    buy
     return (buy,)
 
 
@@ -107,13 +101,12 @@ def _(pl, sales):
 def _(buy, pl):
     money = buy.with_columns(pl.col("order number" , "line item" , "customerkey" , "storekey" , "productkey").cast(pl.String) , 
                             pl.col("order date" , "delivery date").str.to_date("%m/%d/%Y") )
-    money
     return (money,)
 
 
 @app.cell
 def _(money, pl):
-    final_sales = money.select(pl.col("order number" , "line item" , "customerkey" , "storekey" , "productkey" , "currency code").str.strip_chars() )
+    final_sales = money.with_columns(pl.col("order number" , "line item" , "customerkey" , "storekey" , "productkey" , "currency code").str.strip_chars() )
     final_sales
     return (final_sales,)
 
@@ -134,7 +127,6 @@ def _(pl):
 @app.cell
 def _(pl, stores):
     sto = stores.select(pl.all().name.to_lowercase() )
-    sto
     return (sto,)
 
 
@@ -142,7 +134,6 @@ def _(pl, stores):
 def _(pl, sto):
     res = sto.with_columns(pl.col("storekey").cast(pl.String) , 
                           pl.col("open date").str.to_date("%m/%d/%Y") )
-    res
     return (res,)
 
 
@@ -150,7 +141,6 @@ def _(pl, sto):
 def _(pl, res):
     final_stores = res.with_columns(pl.col("storekey" , "country" , "state").str.strip_chars() )
     final_stores
-
     return (final_stores,)
 
 
@@ -170,7 +160,6 @@ def _(pl):
 @app.cell
 def _(customers, pl):
     cust = customers.select(pl.all().name.to_lowercase() )
-    cust
     return (cust,)
 
 
@@ -178,7 +167,6 @@ def _(customers, pl):
 def _(cust, pl):
     omers = cust.with_columns(pl.col("customerkey").cast(pl.String) ,
                              pl.col("birthday").str.to_date("%m/%d/%Y") )
-    omers
     return (omers,)
 
 
@@ -187,7 +175,6 @@ def _(omers, pl):
     final_customers = omers.with_columns(pl.col("customerkey" , "gender" , "name" , "city" , "state code" , "state" , 
                                                "zip code" , "country" , "continent").str.strip_chars() )
     final_customers
-    
     return (final_customers,)
 
 
