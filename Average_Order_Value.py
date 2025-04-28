@@ -14,10 +14,8 @@ def _():
 
 
 @app.cell
-def _(pl):
-    customers=pl.read_csv("C:/Users/dcpau/Documents/IENG 331/Final-Project/data/Customers.csv")
-    customers.head()
-    return (customers,)
+def _():
+    return
 
 
 @app.cell
@@ -122,7 +120,8 @@ def _(Total_Price, pl):
 def _(Total_Price, pl):
     counts=Total_Price.with_columns(
         pl.col("Online").count().alias("Online Count"),
-        pl.col("Store").count().alias("Store Count")
+        pl.col("Store").count().alias("Store Count"),
+ 
     )
 
     counts
@@ -130,9 +129,10 @@ def _(Total_Price, pl):
 
 
 @app.cell
-def _(counts, pl):
-    avg=counts.with_columns(pl.col(""))
-    return (avg,)
+def _(counts):
+    Order_counts=counts.select("Online Count","Store Count")
+    Order_counts
+    return (Order_counts,)
 
 
 if __name__ == "__main__":
