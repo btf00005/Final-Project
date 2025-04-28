@@ -45,7 +45,6 @@ def _(pl, seasonal_sale):
 
     )
     seasonal_count
-
     return (seasonal_count,)
 
 
@@ -81,7 +80,7 @@ def _(rape_central):
 @app.cell
 def _(pl, seasonal_sale):
     fuck = seasonal_sale.select("quantity" , "season").group_by("season").agg(pl.col("quantity").sum())
-    fuck               
+    fuck
     return (fuck,)
 
 
@@ -94,6 +93,39 @@ def _(fuck):
         height=300)
     bar_2
     return (bar_2,)
+
+
+@app.cell
+def _(pl, sales):
+    sale_year =  sales.with_columns(
+        pl.col("order date").dt.year().alias("order year") )
+
+    sale_year
+    return (sale_year,)
+
+
+@app.cell
+def _(pl, sale_year):
+    kys = sale_year.with_columns(pl.col("order year").cast(pl.String))
+    kys
+    return (kys,)
+
+
+@app.cell
+def _(kys, pl):
+    freaky_gorilla = kys.select("quantity" , "order year").group_by("order year").agg(pl.col("quantity").sum() )
+    freaky_gorilla
+    return (freaky_gorilla,)
+
+
+@app.cell
+def _(freaky_gorilla):
+    freaky_gorilla.plot.bar(x="order year", y="quantity" , color="order year"
+    ).properties(
+        title="Yearly Quantity",
+        width=400,
+        height=300)
+    return
 
 
 @app.cell
