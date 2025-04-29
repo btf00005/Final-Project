@@ -58,8 +58,8 @@ def _(pl, seasonal_count):
 @app.cell
 def _(pl):
     rape_central = pl.DataFrame({
-        "category": ["winter", "spring", "summer", "fall"],  # Categories for your bars
-        "value": [24802, 8741, 14121, 15220]          # Your four numbers
+        "category": ["winter", "spring", "summer", "fall"],  
+        "value": [24802, 8741, 14121, 15220]         
     })
 
     rape_central

@@ -20,21 +20,21 @@ def _():
 
 @app.cell
 def _(pl):
-    sales=pl.read_csv("C:/Users/dcpau/Documents/IENG 331/Final-Project/data/Sales.csv")
+    sales=pl.read_csv("data/Sales.csv")
     sales
     return (sales,)
 
 
 @app.cell
 def _(pl):
-    products=pl.read_csv("C:/Users/dcpau/Documents/IENG 331/Final-Project/data/Products.csv")
+    products=pl.read_csv("data/Products.csv")
     products
     return (products,)
 
 
 @app.cell
 def _(pl):
-    stores=pl.read_csv("C:/Users/dcpau/Documents/IENG 331/Final-Project/data/Stores.csv")
+    stores=pl.read_csv("data/Stores.csv")
     stores
     return (stores,)
 
@@ -121,7 +121,7 @@ def _(Total_Price, pl):
     counts=Total_Price.with_columns(
         pl.col("Online").count().alias("Online Count"),
         pl.col("Store").count().alias("Store Count"),
- 
+
     )
 
     counts
@@ -133,6 +133,30 @@ def _(counts):
     Order_counts=counts.select("Online Count","Store Count")
     Order_counts
     return (Order_counts,)
+
+
+@app.cell
+def _(pl):
+    grizzly_territory = pl.DataFrame({
+            "place": ["online" , "store"], 
+            "value": [13165 , 49719] })
+    
+    return (grizzly_territory,)
+
+
+@app.cell
+def _(grizzly_territory):
+    grizzly_territory.plot.bar(x="place", y="value" , color="place"
+        ).properties(
+            title="Order Placement",
+            width=400,
+            height=300)
+    return
+
+
+@app.cell
+def _():
+    return
 
 
 if __name__ == "__main__":
